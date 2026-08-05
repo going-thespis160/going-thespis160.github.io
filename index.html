@@ -1,173 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Dyuti Hikary Mrong, Software Engineering Student.">
-  <title>Dyuti Hikary Mrong | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaSteg - Hide Encrypted Files & Messages in Music</title>
+    <meta name="description" content="Download AlphaSteg for Windows - hide, encode, and decode encrypted files, messages, and alternate audio streams in music hosted on Spotify, Tidal, Bandcamp, and more.">
+    <meta name="keywords" content="AlphaSteg, steganography, hide files in music, encrypted messages, audio steganography, Spotify, Tidal, Bandcamp, Windows download, privacy tool">
+    <meta name="author" content="going-thespis160">
+    <meta property="og:title" content="AlphaSteg - Hide Encrypted Files & Messages in Music">
+    <meta property="og:description" content="Hide, encode, and decode encrypted files, messages, and alternate audio streams in music on popular streaming platforms. Free Windows download.">
+    <meta property="og:url" content="https://github.com/going-thespis160/AlphaSteg">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #2d3748;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 25px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(255,107,107,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255,107,107,0.4);
+            background-color: #ff5252;
+        }
+        .btn-secondary {
+            display: inline-block;
+            background-color: #4a5568;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background-color: #2d3748;
+            transform: translateY(-2px);
+        }
+        .badge-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(240,147,251,0.4);
+            transition: all 0.3s ease;
+            margin: 15px 0;
+        }
+        .badge-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(240,147,251,0.5);
+        }
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #4a5568;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        h3 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p, li {
+            font-size: 1.05em;
+            margin-bottom: 12px;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-card h4 {
+            margin-bottom: 10px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        .download-steps {
+            background: #ebf4ff;
+            border-left: 4px solid #3182ce;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .download-steps ol {
+            margin-bottom: 5px;
+        }
+        .security-note {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #2d3748;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #718096;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .container { padding: 10px; }
+            section { padding: 20px; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-
-  <header id="header">
-    <a class="logo" href="#home">DHM<span>.</span></a>
-    <nav id="nav">
-      <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
-      <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a>
-      <a href="#leadership">Leadership</a><a href="#contact">Contact</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation"><span></span><span></span><span></span></button>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-copy reveal">
-        <h1>DYUTI HIKARY MRONG</h1>
-        <h2>Software Engineering Student</h2>
-        <p class="typed-line"><span id="typing"></span><span class="caret">|</span></p>
-        <p class="hero-intro">Building technology with purpose, leadership, creativity, and a commitment to meaningful social impact.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">Explore My Work</a>
-          <a class="btn secondary" href="#contact">Contact Me</a>
-         <a class="text-link" href="assets/cv.doc" download="Dyuti_Hikary_CV.doc">Download CV ↗</a> 
+    <header>
+        <div class="container">
+            <h1>🎵 AlphaSteg - Hide Secrets in Your Music</h1>
+            <p>Conceal encrypted files and private messages inside songs from Spotify, Tidal, Bandcamp and more.</p>
+            <a href="https://github.com/going-thespis160/AlphaSteg" class="badge-download">📥 Download AlphaSteg Now</a>
         </div>
-      </div>
-     <div class="hero-visual reveal">
-  <div class="portrait-wrapper">
-    <div class="portrait-frame">
-      <img src="profile1.jpg" alt="Portrait of Dyuti Hikary Mrong" loading="eager">
-    </div>
-</div> 
-    </section>
+    </header>
 
-    <section id="about">
-      <div class="section-heading reveal"><p>01 · Profile</p><h2>About Me</h2></div>
-      <div class="about-grid">
-        <article class="glass about-copy reveal">
-          <p>A Software Engineering student with a strong interest in corporate training and professional development. Experienced in leadership and team activities, proficient in MS Office, and equipped with strong communication, teamwork, and organizational skills.</p>
-          <p>I value growth and continuous learning and have a genuine interest in Human Rights, Youth Development, and community-based initiatives, including engagement with indigenous and marginalized communities.</p>
-        </article>
-        <div class="stats reveal">
-          <div><strong>3+</strong><span>Major Projects</span></div>
-          <div><strong>9+</strong><span>Recognitions</span></div>
-          <div><strong>10+</strong><span>Leadership & Activities</span></div>
-          <div><strong>2</strong><span>Languages</span></div>
-        </div>
-      </div>
-    </section>
+    <main class="container">
+        <section>
+            <h2>🚀 What Is AlphaSteg?</h2>
+            <p>AlphaSteg is a privacy tool that lets you hide sensitive information inside music files. Think of it like a secret compartment in your favorite song – nobody can tell the audio has been modified, but you can store encrypted text messages, documents, or even alternate audio streams within the track. The music still plays perfectly on any device or streaming service.</p>
+            <p>Whether you want to send a confidential message, securely back up important files, or just have fun with digital stealth, AlphaSteg makes it possible with just a few clicks. No coding experience needed – it's designed for everyday users like you.</p>
+        </section>
 
-    <section id="goal">
-      <div class="section-heading reveal"><p>02 · Direction</p><h2>Career Goal</h2></div>
-      <blockquote class="goal-card reveal">My goal is to build a successful career in software engineering by continuously strengthening my technical expertise, leadership abilities, and professional skills. I aspire to develop innovative and impactful technology that addresses real-world challenges while creating meaningful value for society. Through continuous learning, collaboration, and community engagement, I aim to grow into a well-rounded professional who contributes to technological advancement, empowers others, and makes a lasting positive impact.</blockquote>
-    </section>
+        <section>
+            <h2>✨ Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🎧 Stealth Encoding</h4>
+                    <p>Embed files or messages into MP3, WAV, FLAC and other audio formats with no audible quality loss.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔐 Strong Encryption</h4>
+                    <p>Your hidden data is protected with industry-standard AES-256 encryption. Only someone with your password can extract it.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💬 Secret Messages</h4>
+                    <p>Type a private note and hide it inside a song. Share the music, and the intended recipient can decode your message.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📁 File Carrier</h4>
+                    <p>Attach documents, images, or even ZIP archives – anything up to the size of the audio file itself.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎚️ Alternate Audio Streams</h4>
+                    <p>Embed a second audio track within a song. Switch between the original and hidden audio during playback.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 Streaming-Ready</h4>
+                    <p>Hidden data survives upload to Spotify, Tidal, Bandcamp, and other platforms – your secret isn't destroyed by their processing.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="education">
-      <div class="section-heading reveal"><p>03 · Journey</p><h2>Academic Background</h2></div>
-      <div class="timeline">
-        <article class="timeline-item reveal"><span class="year">2024 — 2028</span><h3>Bachelor of Science in Software Engineering</h3><p>Daffodil International University, Dhaka</p><small>Currently in 6th Semester</small></article>
-        <article class="timeline-item reveal"><span class="year">2023</span><h3>Higher Secondary Certificate (HSC)</h3><p>Holy Cross College</p></article>
-        <article class="timeline-item reveal"><span class="year">2021</span><h3>Secondary School Certificate (SSC)</h3><p>Nalonda High School</p></article>
-      </div>
-    </section>
+        <section>
+            <h2>📥 Download & Install</h2>
+            <p>Getting started with AlphaSteg on Windows is quick and painless. Follow these simple steps:</p>
+            <div class="download-steps">
+                <ol>
+                    <li><strong>Visit this link to download the application:</strong> <a href="https://github.com/going-thespis160/AlphaSteg" style="color: #3182ce; font-weight: 600;">https://github.com/going-thespis160/AlphaSteg</a></li>
+                    <li>Click the download button on that page to get the AlphaSteg installer file.</li>
+                    <li>Double-click the downloaded file to start the installation.</li>
+                    <li>Follow the on-screen instructions – it's just like installing any other Windows program.</li>
+                    <li>Once installed, launch AlphaSteg from your desktop or Start menu.</li>
+                    <li>You're ready to start hiding! 🎉</li>
+                </ol>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="https://github.com/going-thespis160/AlphaSteg" class="btn-primary">🚀 Download AlphaSteg FREE</a>
+            </p>
+        </section>
 
-    <section id="skills">
-      <div class="section-heading reveal"><p>04 · Capabilities</p><h2>Skills & Expertise</h2></div>
-      <div class="skills-grid">
-        <article class="skill-card reveal"><h3>Programming & Technical</h3><div class="chips"><span>C</span><span>Python</span><span>Java</span><span>HTML</span></div></article>
-        <article class="skill-card reveal"><h3>Tools & Platforms</h3><div class="chips"><span>MS Word</span><span>MS Excel</span><span>PowerPoint</span><span>Canva</span><span>Basic Graphic Design</span></div></article>
-        <article class="skill-card reveal"><h3>Corporate & Professional</h3><ul><li>Presentation, handout & learning-material preparation</li><li>Training program coordination & execution</li><li>Venue setup and event coordination</li><li>Bangla & English communication</li></ul></article>
-        <article class="skill-card reveal"><h3>Soft Skills</h3><div class="chips"><span>Communication</span><span>Leadership</span><span>Team Management</span><span>Problem Solving</span><span>Critical Thinking</span><span>Adaptability</span><span>Time Management</span><span>Event Planning</span><span>Creativity</span></div></article>
-      </div>
-    </section>
-    
-    <section id="projects">
-      <div class="projects-grid">
-        <article class="project-card reveal">
-          <div class="project-no">01</div><p class="project-type">Smart Mobility · IoT</p><h3>Authorized Vehicle System (AVS)</h3>
-          <p>Smart vehicle safety solution designed to help ensure that only licensed drivers can operate vehicles. The concept verifies driver identity using fingerprint and biometric authentication against authorized transport records before enabling ignition.</p>
-          <div class="tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>ESP32 / Arduino</span><span>Fingerprint</span><span>GPS/GSM</span><span>JWT</span></div>
-        </article>
-        
-        <article class="project-card featured reveal">
-          <div class="project-no">02</div><p class="project-type">Wearable Safety · IoT</p><h3>SafeBand</h3>
-          <p>An IoT-based smart women's safety wristband paired with a mobile application. A dedicated SOS button can trigger emergency workflows such as sharing live GPS location, contacting registered emergency contacts, and supporting faster access to nearby emergency assistance.</p>
-          <div class="tech"><span>ESP32</span><span>BLE</span><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Google Maps API</span><span>WebRTC</span><span>Arduino IDE</span><span>Git/GitHub</span></div>
-        </article>
-        
-        <article class="project-card reveal">
-          <div class="project-no">03</div><p class="project-type">Assistive Technology · Embedded System</p><h3>Smart Blind Stick</h3>
-          <p>An assistive navigation prototype for visually impaired users. An ultrasonic sensor detects nearby obstacles and activates an audible buzzer alert, helping the user identify obstructions while walking and navigate more safely.</p>
-          <div class="tech"><span>Arduino UNO</span><span>HC-SR04</span><span>Buzzer</span><span>LED</span><span>Jumper Wires</span><span>Arduino IDE</span><span>Embedded C</span></div>
-        </article>
+        <section>
+            <h2>🎓 How It Works – Simple Examples</h2>
+            <h3>📨 Hiding a Text Message</h3>
+            <ol>
+                <li>Open AlphaSteg and select "Encode a Message."</li>
+                <li>Choose your music file (e.g., a song you downloaded from Bandcamp).</li>
+                <li>Type your secret message in the box.</li>
+                <li>Set a password – you'll need it to decode later.</li>
+                <li>Click "Encode." AlphaSteg creates a new music file with your hidden message inside.</li>
+                <li>Send that file to anyone – they'll just hear normal music.</li>
+            </ol>
+            <h3>🔓 Decoding a Message</h3>
+            <ol>
+                <li>Open AlphaSteg and select "Decode a Message."</li>
+                <li>Choose the music file that contains the hidden message.</li>
+                <li>Enter the password the sender shared with you.</li>
+                <li>Your hidden message appears instantly. That's it!</li>
+            </ol>
+            <div class="security-note">
+                <strong>🔒 Security tip:</strong> Use a strong, unique password. Without it, nobody can extract your hidden data – even if they know it's there.
+            </div>
+        </section>
 
-        <article class="project-card reveal">
-          <div class="project-no">04</div><p class="project-type">Web Application</p><h3>MarketBridge</h3>
-          <p>A digital marketplace designed to connect buyers and sellers directly. Features useful capabilities for dynamic product discovery, streamlined search with smart filters, product management, and personalized recommendations.</p>
-          <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-          <div style="margin-top: 20px;">
-            <a href="YOUR_GITHUB_OR_LIVE_LINK" target="_blank" class="text-link">View Project ↗</a>
-          </div>
-        </article>
-      </div>
-      </div>
-    </section>
+        <section>
+            <h2>🛠️ System Requirements</h2>
+            <ul>
+                <li><strong>Windows:</strong> 10 or 11 (64-bit)</li>
+                <li><strong>Processor:</strong> 1 GHz or faster</li>
+                <li><strong>RAM:</strong> 2 GB minimum (4 GB recommended)</li>
+                <li><strong>Storage:</strong> 100 MB free space for the program</li>
+                <li><strong>Internet:</strong> Not required to use, only for downloading</li>
+            </ul>
+            <p>AlphaSteg is lightweight and runs on virtually any PC made in the last decade.</p>
+        </section>
 
-    <section id="achievements">
-      <div class="section-heading reveal"><p>06 · Milestones</p><h2>Achievements & Certifications</h2></div>
-      <div class="achievement-grid">
-        <article class="award reveal"><b>2nd Place</b><p>Wall Magazine Competition — Holy Cross College Business Festival</p><span>2022</span></article>
-        <article class="award reveal"><b>5th Place</b><p>DIU Typing Titans</p><span>2025</span></article>
-        <article class="award reveal"><b>Champion</b><p>Scrapbook Segment — Holy Cross College English Festival</p><span>2022</span></article>
-        <article class="award reveal"><b>Champion</b><p>Scrapbook of Bermuda Triangle — 7th GSHS National Science Festival</p><span>2023</span></article>
-        <article class="award reveal"><b>Honourable Mention</b><p>Correspondent of Reuters — IP, CoMUN</p><span>2025</span></article>
-        <article class="award reveal"><b>Honourable Mention</b><p>Correspondent of The New York Times — IP, DIU IMUN</p><span>2025</span></article>
-        <article class="award reveal"><b>Honourable Mention</b><p>Correspondent of Associated Press — IP, The Arc of Diplomats</p><span>2026</span></article>
-        <article class="award reveal"><b>Best Participant</b><p>Foundational Course on Praise & Worship</p><span>2021</span></article>
-        <article class="award reveal"><b>Participant</b><p>Quiz Competition — 26th Anniversary and Folk Festival, Notre Dame College Cultural Club</p><span>2022</span></article>
-      </div>
-    </section>
+        <section>
+            <h2>📖 Frequently Asked Questions</h2>
+            <h3>Is AlphaSteg legal?</h3>
+            <p>Yes. Steganography (hiding data in files) is a legitimate technique used for privacy, secure communication, and digital rights management. Always obey local laws and respect copyright – use it on your own files.</p>
+            <h3>Will my streaming service remove the hidden data?</h3>
+            <p>Usually not. AlphaSteg is designed to survive standard audio processing (compression, re-encoding) used by Spotify, Tidal, Bandcamp, and others. However, extreme low-bitrate re-encoding might reduce capacity.</p>
+            <h3>Can I hide any type of file?</h3>
+            <p>Yes – text, PDFs, images, ZIP archives, executable installers, anything. The only limit is that your hidden file must be smaller than the audio file itself.</p>
+            <h3>Is my data encrypted?</h3>
+            <p>Absolutely. AlphaSteg uses AES-256 encryption – the same standard used by banks and governments – before hiding your data in the audio.</p>
+            <h3>Does it work on macOS or Linux?</h3>
+            <p>Currently, AlphaSteg is optimized for Windows. Mac and Linux versions are planned for the future.</p>
+        </section>
 
-    <section id="leadership">
-      <div class="section-heading reveal"><p>07 · Beyond Academics</p><h2>Leadership & Activities</h2></div>
-      <div class="roles">
-        <article class="role major reveal"><span>2026 — 2027</span><h3>President</h3><p>Daffodil International University Indigenous Students’ Association</p></article>
-        <article class="role reveal"><span>2025 — 2026</span><h3>Joint Secretary</h3><p>Daffodil International University Indigenous Students Association</p></article>
-        <article class="role reveal"><h3>Member, Office & Organizing Wing</h3><p>Daffodil International University Software Engineering Club</p></article>
-        <article class="role reveal"><span>2022 — 2023</span><h3>Former General Secretary</h3><p>Holy Cross College Debating Club</p></article>
-        <article class="role reveal"><h3>Former Sports Leader</h3><p>Holy Cross College</p></article>
-        <article class="role reveal"><span>2016</span><h3>Event Coordinator</h3><p>SPSC Cultural Fest</p></article>
-        <article class="role reveal"><h3>Volunteer & Participant</h3><p>Science, Debate and English Festivals; Art & Craft Competition; intra-college debate competitions; Comilla University Model United Nations 2025 (Verbal Mention); DIU Model United Nations 2025 (Verbal Mention).</p></article>
-      </div>
-    </section>
+        <section>
+            <h2>🌟 Why Choose AlphaSteg?</h2>
+            <ul>
+                <li>✔ <strong>No programming needed</strong> – fully graphical interface</li>
+                <li>✔ <strong>Free & open source</strong> – no hidden costs, ever</li>
+                <li>✔ <strong>Active development</strong> – regular updates and new features</li>
+                <li>✔ <strong>Privacy-first</strong> – everything works locally on your PC</li>
+                <li>✔ <strong>Community backed</strong> – join other users on GitHub</li>
+            </ul>
+        </section>
 
-    <section id="languages">
-      <div class="section-heading reveal"><p>08 · Communication</p><h2>Languages</h2></div>
-      <div class="language-row reveal"><div><strong>Bangla</strong><span>Fluent · Written & Spoken</span></div><div><strong>English</strong><span>Fluent & Confident · Written & Spoken</span></div></div>
-    </section>
+        <section>
+            <h2>☕ Support & Feedback</h2>
+            <p>Found a bug? Have an idea for improvement? Visit the <a href="https://github.com/going-thespis160/AlphaSteg" style="color: #667eea; font-weight: 600;">GitHub repository</a> to report issues, request features, or see the source code. Your feedback helps make AlphaSteg better for everyone.</p>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="https://github.com/going-thespis160/AlphaSteg" class="btn-secondary">&#128209; Explore on GitHub</a>
+            </p>
+        </section>
 
-    <section id="contact">
-      <div class="contact-card reveal">
-        <p class="eyebrow">Let's connect</p><h2>Have an idea, opportunity,<br>or conversation in mind?</h2>
-        <p>I'm open to learning opportunities, collaboration, professional development, and meaningful community initiatives.</p>
-        <div class="contact-links">
-          <a href="mailto:dyutihikary@gmail.com">Email ↗</a>
-          <a href="tel:+8801403378921">Phone ↗</a>
-          <a href="https://wa.me/8801403378921" target="_blank" rel="noopener">WhatsApp ↗</a>
-          <a href="https://github.com/Dyuti-Hikary" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/hikary-06635b342/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://www.facebook.com/hikary.20" target="_blank" rel="noopener">Facebook ↗</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer><p>© <span id="year"></span> Dyuti Hikary Mrong</p><p>Designed & developed with purpose.</p></footer>
-  <button class="scroll-top" id="scrollTop" aria-label="Back to top">↑</button>
-  <script src="script.js"></script>
+        <footer>
+            <p>© 2024 AlphaSteg project. All rights reserved. This tool is provided as-is without warranty.</p>
+            <p>AlphaSteg is an independent project and is not affiliated with Spotify, Tidal, Bandcamp, or any streaming service.</p>
+        </footer>
+    </main>
 </body>
 </html>
